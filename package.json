@@ -1,0 +1,22 @@
+{
+  "name": "monorepo",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  },
+  "scripts": {
+    "workspace:lint": "lerna run --scope monorepo-* lint",
+    "cloud:add": "lerna add --scope monorepo-cloud",
+    "cloud:purge": "npx lerna run --stream --scope monorepo-cloud purge",
+    "cloud:synth": "npx lerna run --stream --scope monorepo-cloud synth",
+    "cloud:deploy": "npx lerna run --stream --scope monorepo-cloud deploy",
+    "cloud:bootstrap": "npx lerna run --stream --scope monorepo-cloud bootstrap",
+    "web:add": "lerna add --scope monorepo-web",
+    "web:run": "npx lerna run --stream --scope monorepo-web dev",
+    "web:build": "npx lerna run --stream --scope monorepo-web build",
+    "web:vercel": "npx lerna run --stream --scope monorepo-web vercel",
+    "bootstrap": "npx lerna bootstrap",
+    "prepare": "husky install"
+  },
+  "workspaces": ["./packages/**"]
+}
